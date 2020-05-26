@@ -1,13 +1,35 @@
-import React from 'react';
+import React from "react";
 
-import AdminSummary from "./components/admin-summary/admin-summary.component";
+import Topbar from "./components/layout/topbar/topbar.component";
+import Footer from "./components/layout/footer/footer.component";
+import Sidebar from "./components/layout/sidebar/sidebar.component";
+import Dashboard from "./components/dashboard/dashboard.component";
+import MainContent from "./components/layout/main-content/main-content.component";
+import ContentWrapper from "./components/layout/content-wrapper/content-wrapper.component";
+import ContentContainer from "./components/layout/content-container/content-container.component";
 
-import './App.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
-function App() {
+import "popper.js";
+import "bootstrap/dist/js/bootstrap";
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <AdminSummary />
+    <div id="wrapper">
+      	<Sidebar/>
+        <ContentWrapper>
+			<MainContent>
+				{/* Topbar */}
+				<Topbar />
+				{/* Content container */}
+				<ContentContainer>
+					<Dashboard />
+				</ContentContainer>
+			</MainContent>
+			<Footer />
+        </ContentWrapper>
     </div>
   );
 }
