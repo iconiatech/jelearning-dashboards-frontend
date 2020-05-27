@@ -24,7 +24,7 @@ const App: React.FC = () => {
 			<MainContent>
 				{/* Topbar */}
 				<Topbar />
-				{/* Content container */}
+				{/* Content Container */}
 				<ContentContainer>
 					<Dashboard />
 				</ContentContainer>
