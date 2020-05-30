@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { setCurrentUser } from "../../../redux/user/user.actions";
+import { login, logout } from "../../../redux/modules/user/user";
 
-const mapDispatch = { setCurrentUser };
+const mapDispatch = { login, logout };
 
 type Props = typeof mapDispatch;
 
-const Login: React.FC<Props> = ({ setCurrentUser }) => {
+const Login: React.FC<Props> = ({ login, logout }) => {
 
     // declare local state
     const [email, setEmail] = useState<string>("");
@@ -19,7 +19,12 @@ const Login: React.FC<Props> = ({ setCurrentUser }) => {
         event.preventDefault();
         // login user
         console.log("logging you in...");
-        setCurrentUser({ isAuthenticated: true });
+        login({
+            isAuthenticated: true,
+            email,
+            password,
+            type: "admin"
+        })
     }
 
     return (
