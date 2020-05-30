@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
 import { RootState } from "./redux/root-reducer";
-import { UserState } from "./redux/user/user.types";
+import { UserState } from "./redux/modules/user/user";
 
 import Login from "./components/pages/login/login.component";
 import Topbar from "./components/layout/topbar/topbar.component";
