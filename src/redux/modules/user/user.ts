@@ -34,7 +34,7 @@ export const userReducer = (state=initialState, action: UserAction): UserState =
         case "user/LOGIN":
             return {
                 ...state,
-                ...action.payload
+                ...action.payload,
             }
         case "user/LOGOUT":
             return {
@@ -42,7 +42,7 @@ export const userReducer = (state=initialState, action: UserAction): UserState =
                 isAuthenticated: false,
                 email: "",
                 password: "",
-                type: ""
+                type: "",
             };
         default:
             return state;
