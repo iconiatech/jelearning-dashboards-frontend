@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { login, logout } from "../../../redux/modules/user/user";
+import { login, } from "../../../redux/modules/user/user";
 
-const mapDispatch = { login, logout };
+const mapDispatchToProps = { login, };
 
-type Props = typeof mapDispatch;
+type LoginProps = typeof mapDispatchToProps;
 
-const Login: React.FC<Props> = ({ login, logout }) => {
+const Login: React.FC<LoginProps> = ({ login, }) => {
 
     // declare local state
     const [email, setEmail] = useState<string>("");
@@ -20,10 +20,14 @@ const Login: React.FC<Props> = ({ login, logout }) => {
         // login user
         console.log("logging you in...");
         login({
-            isAuthenticated: true,
+            id: 1,
             email,
             password,
-            type: "admin"
+            type: "teacher",
+            name: "Peter",
+            username: "petergich",
+            isDeactivated: false,
+            isAuthenticated: true,
         })
     }
 
@@ -92,4 +96,4 @@ const Login: React.FC<Props> = ({ login, logout }) => {
     )
 }
 
-export default connect(null, mapDispatch)(Login);
+export default connect(null, mapDispatchToProps)(Login);
