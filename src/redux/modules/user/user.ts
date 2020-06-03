@@ -1,21 +1,19 @@
-export function typedAction<T extends string>(type: T): { type: T };
-export function typedAction<T extends string, P extends any>(type: T, payload: P): { type: T; payload: P };
-export function typedAction(type: string, payload?: any) {
-    return { type, payload };
-}
+import { typedAction } from "../typed.action";
+import { User } from "../../../models/user/user.model";
 
-export interface UserState {
+export interface UserState extends User {
     isAuthenticated: boolean;
-    email: string;
-    password: string;
-    type: string;
 }
 
 const initialState: UserState = {
-    isAuthenticated: false,
+    id: 0,
+    type: "",
+    name: "",
     email: "",
     password: "",
-    type: "",
+    username: "",
+    isDeactivated: false,
+    isAuthenticated: false,
 }
 
 export const login = (user: UserState) => {
